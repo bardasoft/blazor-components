@@ -20,10 +20,7 @@
 		<Description>Blazor component that renders a Blazor Color Picker control with color info. Part of Majorsoft Blazor library.</Description>
 		<Title>Blazor Components ColorPicker</Title>
 		<PackageLicenseFile>License.txt</PackageLicenseFile>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-		<DocumentationFile>.\Majorsoft.Blazor.Components.ColorPicker.xml</DocumentationFile>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 	</PropertyGroup>
 
 	<ItemGroup>

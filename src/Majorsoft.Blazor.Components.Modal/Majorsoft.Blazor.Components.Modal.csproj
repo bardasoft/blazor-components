@@ -20,10 +20,7 @@
 		<PackageTags>.Net5 Blazor Modal Dialog Window</PackageTags>
 		<PackageLicenseFile>License.txt</PackageLicenseFile>
 		<Title>Blazor Components Modal</Title>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-		<DocumentationFile>.\Majorsoft.Blazor.Components.Modal.xml</DocumentationFile>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 	</PropertyGroup>
 
 	<ItemGroup>

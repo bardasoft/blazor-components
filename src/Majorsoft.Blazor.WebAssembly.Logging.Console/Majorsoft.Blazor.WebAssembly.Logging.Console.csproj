@@ -20,12 +20,8 @@
 		<Title>Blazor WebAssembly Logging Console</Title>
 		<PackageLicenseFile>License.txt</PackageLicenseFile>
 		<Company>Majorsoft</Company>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-		<DocumentationFile>.\Majorsoft.Blazor.WebAssembly.Logging.Console.xml</DocumentationFile>
-	</PropertyGroup>
-
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.3" />

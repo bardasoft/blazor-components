@@ -20,10 +20,7 @@
 	<Description>Blazor extension that enables Browser Local and Session storages and Cookies store access for Blazor applications. Part of Majorsoft Blazor library.</Description>
 	<Title>Blazor Extensions BrowserStorage</Title>
 	<PackageLicenseFile>License.txt</PackageLicenseFile>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-	<DocumentationFile>.\Majorsoft.Blazor.Extensions.BrowserStorage.xml</DocumentationFile>
+	<GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

@@ -20,12 +20,8 @@
 		<Description>Blazor component that renders an Input, InputText, Textarea or InputTextarea, etc. element with debounced onChange. Part of Majorsoft Blazor library.</Description>
 		<Title>Blazor Components Debounce Input</Title>
 		<PackageLicenseFile>License.txt</PackageLicenseFile>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-		<DocumentationFile>.\Majorsoft.Blazor.Components.Debounce.xml</DocumentationFile>
-	</PropertyGroup>
-
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.3" />

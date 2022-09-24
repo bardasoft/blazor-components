@@ -20,10 +20,7 @@
 		<Description>Blazor component that renders a customizable Expand/Collapse element also supports Collapse group (accordion). Part of Majorsoft Blazor library.</Description>
 		<Title>Blazor Components Expand/Collapse</Title>
 		<PackageLicenseFile>License.txt</PackageLicenseFile>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-		<DocumentationFile>.\Majorsoft.Blazor.Components.Collapse.xml</DocumentationFile>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 	</PropertyGroup>
 
 	<ItemGroup>

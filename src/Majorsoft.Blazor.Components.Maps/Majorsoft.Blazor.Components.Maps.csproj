@@ -20,10 +20,7 @@
 		<PackageTags>.Net5 Blazor Maps Google Bing Pins Cluster Geo Location Geolocation Position GPS</PackageTags>
 		<PackageLicenseFile>License.txt</PackageLicenseFile>
 		<Title>Blazor Components Maps</Title>  
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-	  <DocumentationFile>.\Majorsoft.Blazor.Components.Maps.xml</DocumentationFile>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 	</PropertyGroup>
 
 	<ItemGroup>

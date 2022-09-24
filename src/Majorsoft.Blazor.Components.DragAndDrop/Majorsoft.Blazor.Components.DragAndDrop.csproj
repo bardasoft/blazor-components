@@ -20,13 +20,9 @@
 		<PackageTags>.Net5 Blazor Drag&amp;Drop Drag Drop</PackageTags>
 		<Title>Blazor Components Drag and Drop</Title>
 		<PackageLicenseFile>License.txt</PackageLicenseFile>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 	</PropertyGroup>
 
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-		<DocumentationFile>.\Majorsoft.Blazor.Components.DragAndDrop.xml</DocumentationFile>
-	</PropertyGroup>
-
-	
 	<ItemGroup>
 		<SupportedPlatform Include="browser" />
 	</ItemGroup>

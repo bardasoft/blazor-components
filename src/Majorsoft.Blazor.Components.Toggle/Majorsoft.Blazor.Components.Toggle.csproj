@@ -20,12 +20,9 @@
 		<PackageLicenseFile>License.txt</PackageLicenseFile>
 		<PackageReleaseNotes>See Releases here: https://github.com/majorimi/blazor-components/releases</PackageReleaseNotes>
 		<Title>Blazor Components Toggle</Title>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-		<DocumentationFile>.\Majorsoft.Blazor.Components.Toggle.xml</DocumentationFile>
-	</PropertyGroup>
-
+	
 	<ItemGroup>
 		<Content Remove="bundleconfig.json" />
 	</ItemGroup>

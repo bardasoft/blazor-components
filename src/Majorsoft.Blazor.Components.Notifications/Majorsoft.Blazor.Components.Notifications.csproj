@@ -21,11 +21,8 @@
 	  <PackageLicenseFile>License.txt</PackageLicenseFile>
 	  <Title>Blazor Components Notifications</Title>
 	  <PackageIconUrl />
+	  <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-		<DocumentationFile>.\Majorsoft.Blazor.Components.Notifications.xml</DocumentationFile>
-	</PropertyGroup>
 
 	<ItemGroup>
 	  <Content Remove="bundleconfig.json" />

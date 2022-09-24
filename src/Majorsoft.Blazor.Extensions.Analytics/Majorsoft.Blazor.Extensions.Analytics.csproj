@@ -20,10 +20,7 @@
 		<Description>Blazor extension that enables WebAssemply site analytics e.g. Google, etc. Part of Majorsoft Blazor library.</Description>
 		<Title>Analytics Google Tracking</Title>
 		<PackageLicenseFile>License.txt</PackageLicenseFile>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-		<DocumentationFile>.\Majorsoft.Blazor.Extensions.Analytics.xml</DocumentationFile>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 	</PropertyGroup>
 
 	<ItemGroup>

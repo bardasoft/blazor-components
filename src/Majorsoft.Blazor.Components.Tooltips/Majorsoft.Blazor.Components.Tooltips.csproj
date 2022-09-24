@@ -21,9 +21,9 @@
 	<PackageReleaseNotes>See Releases here: https://github.com/majorimi/blazor-components/releases</PackageReleaseNotes>
 	<Title>Blazor Components Tooltips</Title>
 	<PackageIconUrl />
+	<GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
-  
   <ItemGroup>
 	<SupportedPlatform Include="browser" />
   </ItemGroup>
@@ -49,14 +49,14 @@
 	</ItemGroup>
 
   <ItemGroup>
-    <None Include="..\..\.github\Images\blazor.components.png">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-    <None Include="..\..\.github\License.txt">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
+	<None Include="..\..\.github\Images\blazor.components.png">
+	  <Pack>True</Pack>
+	  <PackagePath></PackagePath>
+	</None>
+	<None Include="..\..\.github\License.txt">
+	  <Pack>True</Pack>
+	  <PackagePath></PackagePath>
+	</None>
   </ItemGroup>
 
 </Project>

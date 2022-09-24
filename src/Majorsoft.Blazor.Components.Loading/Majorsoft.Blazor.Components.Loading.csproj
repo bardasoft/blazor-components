@@ -22,10 +22,7 @@
 		<PackageTags>.Net5 Blazor Htlm.Button Overlay PageLoading Loading Progress</PackageTags>
 		<PackageLicenseFile>License.txt</PackageLicenseFile>
 		<Title>Blazor Components Loading</Title>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-		<DocumentationFile>.\Majorsoft.Blazor.Components.Loading.xml</DocumentationFile>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 	</PropertyGroup>
 
 	<ItemGroup>

@@ -20,10 +20,7 @@
 		<PackageTags>.Net5 Blazor Js Interop Click Scroll Resize Focus BoundRect Browser Geolocation Head History ColorTheme</PackageTags>
 		<PackageLicenseFile>License.txt</PackageLicenseFile>
 		<Title>Blazor Components JsInterop</Title>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-		<DocumentationFile>.\Majorsoft.Blazor.Components.Common.JsInterop.xml</DocumentationFile>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 	</PropertyGroup>
 
 	<ItemGroup>
