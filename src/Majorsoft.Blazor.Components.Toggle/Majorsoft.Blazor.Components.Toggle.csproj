@@ -12,7 +12,8 @@
 		<Copyright>©2021 Imre Toth</Copyright>
 		<PackageLicenseExpression></PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/majorimi/blazor-components/blob/master/.github/docs/Toggle.md</PackageProjectUrl>
-		<PackageIcon>blazor.components.png</PackageIcon>
+    <PackageReadmeFile>Toggle.md</PackageReadmeFile>
+    <PackageIcon>blazor.components.png</PackageIcon>
 		<RepositoryUrl>https://github.com/majorimi/blazor-components</RepositoryUrl>
 		<RepositoryType>Git</RepositoryType>
 		<PackageTags>.Net5 Blazor Toggle Switch Button Group</PackageTags>
@@ -38,8 +39,15 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.3" />
 	</ItemGroup>
-
+  <PropertyGroup>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+  </PropertyGroup>
+  
 	<ItemGroup>
+		<None Include="..\..\.github\docs\Toggle.md" Link="Toggle.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
 		<None Include="..\..\.github\Images\blazor.components.png">
 			<Pack>True</Pack>
 			<PackagePath></PackagePath>

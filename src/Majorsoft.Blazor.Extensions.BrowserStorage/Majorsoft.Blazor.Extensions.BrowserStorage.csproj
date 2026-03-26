@@ -13,7 +13,8 @@
 	<Copyright>©2021 Imre Toth</Copyright>
 	<PackageLicenseExpression></PackageLicenseExpression>
 	<PackageProjectUrl>https://github.com/majorimi/blazor-components/blob/master/.github/docs/BrowserStorage.md</PackageProjectUrl>
-	<RepositoryUrl>https://github.com/majorimi/blazor-components</RepositoryUrl>
+  <PackageReadmeFile>BrowserStorage.md</PackageReadmeFile>
+  <RepositoryUrl>https://github.com/majorimi/blazor-components</RepositoryUrl>
 	<RepositoryType>Git</RepositoryType>
 	<PackageTags>.Net5 Blazor BrowserStorage LocalStorage SessionStorage Cookies</PackageTags>
 	<PackageReleaseNotes>See Releases here: https://github.com/majorimi/blazor-components/releases</PackageReleaseNotes>
@@ -28,6 +29,10 @@
   </ItemGroup>
 
   <ItemGroup>
+	<None Include="..\..\.github\docs\BrowserStorage.md" Link="BrowserStorage.md">
+    <Pack>True</Pack>
+    <PackagePath></PackagePath>
+  </None>
 	<None Include="..\..\.github\Images\blazor.components.png">
 	  <Pack>True</Pack>
 	  <PackagePath></PackagePath>
@@ -47,5 +52,8 @@
   <ItemGroup>
 	<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.3" />
   </ItemGroup>
-
+  <PropertyGroup>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+  </PropertyGroup>
+  
 </Project>

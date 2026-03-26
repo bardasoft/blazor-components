@@ -12,8 +12,9 @@
 		<Product>Blazor Components</Product>
 		<Copyright>©2021 Imre Toth</Copyright>
 		<PackageLicenseExpression></PackageLicenseExpression>
-		<PackageProjectUrl>https://github.com/majorimi/blazor-components/blob/master/.github/docs/BrowserStorage.md</PackageProjectUrl>
-		<RepositoryUrl>https://github.com/majorimi/blazor-components</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/majorimi/blazor-components/blob/master/.github/docs/Analytics.md</PackageProjectUrl>
+    <PackageReadmeFile>Analytics.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/majorimi/blazor-components</RepositoryUrl>
 		<RepositoryType>Git</RepositoryType>
 		<PackageTags>.Net5 Blazor Analytics Google Tracking Statistics</PackageTags>
 		<PackageReleaseNotes>See Releases here: https://github.com/majorimi/blazor-components/releases</PackageReleaseNotes>
@@ -28,6 +29,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<None Include="..\..\.github\docs\Analytics.md" Link="Analytics.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
 		<None Include="..\..\.github\Images\blazor.components.png">
 		  <Pack>True</Pack>
 		  <PackagePath></PackagePath>
@@ -48,4 +53,7 @@
 		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.3" />
 	</ItemGroup>
 
+  <PropertyGroup>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+  </PropertyGroup>
 </Project>

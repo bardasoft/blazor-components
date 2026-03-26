@@ -11,7 +11,8 @@
 	<Product>Blazor Components</Product>
 	<Copyright>©2021 Imre Toth</Copyright>
 	<PackageLicenseFile>License.txt</PackageLicenseFile>
-	<PackageProjectUrl>https://github.com/majorimi/blazor-components/blob/master/.github/docs/Gdpr.md</PackageProjectUrl>
+	<PackageProjectUrl>https://github.com/majorimi/blazor-components/blob/master/.github/docs/GdprConsent.md</PackageProjectUrl>
+  <PackageReadmeFile>GdprConsent.md</PackageReadmeFile>
 	<PackageIcon>blazor.components.png</PackageIcon>
 	<RepositoryUrl>https://github.com/majorimi/blazor-components</RepositoryUrl>
 	<RepositoryType>Git</RepositoryType>
@@ -53,6 +54,10 @@
   </ItemGroup>
 
   <ItemGroup>
+	<None Include="..\..\.github\docs\GdprConsent.md" Link="GdprConsent.md">
+    <Pack>True</Pack>
+    <PackagePath></PackagePath>
+  </None>
 	<None Include="..\..\.github\Images\blazor.components.png">
 	  <Pack>True</Pack>
 	  <PackagePath></PackagePath>
@@ -64,7 +69,11 @@
 	<None Include="bundleconfig.json" />
   </ItemGroup>
 
-	<!--Include project DLL output to Nuget package-->
+  <PropertyGroup>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+  </PropertyGroup>
+
+  <!--Include project DLL output to Nuget package-->
 	<ItemGroup>
 		<ProjectReference PrivateAssets="all" Include="..\Majorsoft.Blazor.Components.Core\Majorsoft.Blazor.Components.Core.csproj" />
 	</ItemGroup>
