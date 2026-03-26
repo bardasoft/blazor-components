@@ -37,6 +37,20 @@ jobs:
       inputs:
         packageType: "sdk"
         version: "5.0.x"
+    - task: DotNetCoreCLI@2
+      displayName: "Install dotnet format"
+      inputs:
+        command: "custom"
+        custom: "tool"
+        arguments: "update -g dotnet-format"
+    
+    - task: PowerShell@2
+      inputs:
+        targetType: 'inline'
+        script: 'dotnet format --verify-no-changes --verbosity diagnostic'
+        ignoreLASTEXITCODE: true
+        pwsh: true 
+        workingDirectory: backend
     
     # - task: UseDotNet@2
     #   displayName: Install .NET 5
