@@ -199,8 +199,9 @@ namespace Majorsoft.Blazor.Components.Maps.Google
 		/// <summary>
 		/// Creates and removes Polyline on the Map with given values and event callbacks.
 		/// </summary>
-		/// <param name="googleMapPolylineOptions"></param>
+		/// <param name="newPolylines"></param>
+		/// <param name="polylines"></param>
 		/// <returns></returns>
-		Task AddPolyline(params GoogleMapPolylineOptions[] googleMapPolylineOptions);
+		Task CreatePolylinesAsync(IEnumerable<GoogleMapPolylineOptions>? newPolylines, IEnumerable<GoogleMapPolylineOptions>? polylines);
 	}
 }

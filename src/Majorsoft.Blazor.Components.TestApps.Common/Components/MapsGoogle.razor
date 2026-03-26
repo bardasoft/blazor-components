@@ -290,6 +290,7 @@
 						   CenterCurrentLocationOnLoad="@_jsMapCenterCurrentLocation"
 						   CustomControls="@_jsCustomControls"
 						   Markers="@_jsMarkers"
+						   PolyLines="@_jsPolyLines"
 						   OnCurrentLocationDetected="@JavaScripMapLocationDetected"
 						   OnMapInitialized="@OnMapInitialized"
 						   OnMapClicked="@OnMapClicked"
@@ -549,6 +550,9 @@
 	private ObservableRangeCollection<GoogleMapMarker> _jsMarkers = new ObservableRangeCollection<GoogleMapMarker>();
 	private ObservableRangeCollection<GoogleMapMarker> _jsMarkersTmp = new ObservableRangeCollection<GoogleMapMarker>();
 
+	private ObservableRangeCollection<GoogleMapPolylineOptions> _jsPolyLines = new ObservableRangeCollection<GoogleMapPolylineOptions>();
+
+
 	private ElementReference _log;
 	private string _mapsLog;
 	private bool _logMouseMove = false;
@@ -624,7 +628,8 @@
 			StrokeWeight = 5
 		};
 
-		await _googleMap.GoogleMapService.AddPolyline(polylines);
+		//await _googleMap.GoogleMapService.AddPolyline(polylines);
+		_jsPolyLines.Add(polylines);
 	}
 
 	//Events

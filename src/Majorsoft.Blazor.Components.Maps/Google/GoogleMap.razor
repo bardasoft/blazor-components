@@ -323,6 +323,31 @@
 		InvokeAsync(async () => await _mapService.CreateMarkersAsync(e.NewItems?.Cast<GoogleMapMarker>(), _markers?.Cast<GoogleMapMarker>()));
 	}
 
+
+	private ObservableRangeCollection<GoogleMapPolylineOptions>? _polyLines;
+	/// <summary>
+	/// MarkerOptions object used to define the properties that can be set on a Marker.
+	/// ObservableCollection can be initialized only once! Add or remove items to the collection (use `OnMapInitialized` event or user interactions) the change marker properties (Marker properties value changes not detected).
+	/// </summary>
+	[Parameter] public ObservableRangeCollection<GoogleMapPolylineOptions>? PolyLines
+	{
+		get => _polyLines;
+		set
+		{
+			if (_polyLines is null && value is not null) //Subscribe to events only once!
+			{
+				_polyLines = value;
+				_polyLines.CollectionChanged += PolyLinesChanges;
+			}
+		}
+	}
+	private void PolyLinesChanges(object? sender, NotifyCollectionChangedEventArgs e)
+	{
+		WriteDiag($"{nameof(MarkersChanges)} PolyLines collection has changed, item Count: '{_markers?.Count}', NewItems Count: '{e.NewItems?.Count}', OldItems Count: '{e.OldItems?.Count}', Action: '{e.Action}'");
+
+		InvokeAsync(async () => await _mapService.CreatePolylinesAsync(e.NewItems?.Cast<GoogleMapPolylineOptions>(), _markers?.Cast<GoogleMapPolylineOptions>()));
+	}
+
 	private byte _zoomLevel = 12;
 	/// <summary>
 	/// Defines the zoom level of the map, which determines the magnification level of the map.

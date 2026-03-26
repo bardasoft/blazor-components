@@ -316,6 +316,7 @@ function getElementIdWithDotnetRef(dict, elementId) {
 
 let _mapsElementDict = [];
 let _mapsMarkers = [];
+let _mapsPolylines = [];
 
 //Google JS Maps Features
 export function setCenterCoords(elementId, latitude, longitude) {
@@ -614,9 +615,10 @@ function setMarkerData(markerData, marker) {
 }
 
 //Drawing
-export function polylineSetMap(elementId, polylineOptions) {
+export function createPolylines(elementId, polylineOptions) {
 	if (elementId && polylineOptions && polylineOptions.length) {
 		let mapWithDotnetRef = getElementIdWithDotnetRef(_mapsElementDict, elementId);
+
 		if (mapWithDotnetRef && mapWithDotnetRef.map) {
 
 			for (var i = 0; i < polylineOptions.length; i++) {
@@ -624,6 +626,29 @@ export function polylineSetMap(elementId, polylineOptions) {
 
 				let polyline = new google.maps.Polyline(options);
 				polyline.setMap(mapWithDotnetRef.map);
+				_mapsPolylines.push(marker);
+
+
+			}
+		}
+	}
+}
+export function removePolylines(elementId, polylineOptions) {
+	if (elementId && polylineOptions && polylineOptions.length) {
+		let mapWithDotnetRef = getElementIdWithDotnetRef(_mapsElementDict, elementId);
+
+		if (mapWithDotnetRef && mapWithDotnetRef.map) {
+
+			for (var i = 0; i < polylineOptions.length; i++) {
+				let options = polylineOptions[i];
+
+				_mapsPolylines.forEach((element, index) => {
+					if (options.id == element.id) {
+						element.setMap(null);
+						_mapsPolylines.splice(index, 1);
+						return;
+					}
+				});
 			}
 		}
 	}

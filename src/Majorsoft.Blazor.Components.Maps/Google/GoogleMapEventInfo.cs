@@ -39,10 +39,12 @@ namespace Majorsoft.Blazor.Components.Maps.Google
 
 		private readonly Dictionary<string, GoogleMapCustomControl> _customControls;
 		private readonly Dictionary<string, GoogleMapMarker> _markers;
+		private readonly Dictionary<string, GoogleMapPolylineOptions> _polilynes;
 
 		public Dictionary<string, GoogleMapCustomControl> CustomControls => _customControls;
 
 		public Dictionary<string, GoogleMapMarker> Markers => _markers;
+		public Dictionary<string, GoogleMapPolylineOptions> Polilynes => _polilynes;
 
 		/// <summary>
 		/// Default constructor.
@@ -101,6 +103,7 @@ namespace Majorsoft.Blazor.Components.Maps.Google
 			_mapContainerId = mapContainerId;
 
 			_markers = new Dictionary<string, GoogleMapMarker>();
+			_polilynes = new Dictionary<string, GoogleMapPolylineOptions>();
 			_customControls = new Dictionary<string, GoogleMapCustomControl>();
 
 			_mapInitializedCallback = mapInitializedCallback;
@@ -140,6 +143,7 @@ namespace Majorsoft.Blazor.Components.Maps.Google
 			}
 		}
 
+		//Markers
 		public void AddMarkers(IEnumerable<GoogleMapMarker> markers)
 		{
 			foreach (var item in markers)
@@ -161,7 +165,29 @@ namespace Majorsoft.Blazor.Components.Maps.Google
 			}
 		}
 
-		//Map evetns
+		//Polylines
+		public void AddPolylines(IEnumerable<GoogleMapPolylineOptions> polylines)
+		{
+			foreach (var item in polylines)
+			{
+				if (!_polilynes.ContainsKey(item.Id))
+				{
+					_polilynes.Add(item.Id, item);
+				}
+			}
+		}
+		public void RemovePolylines(IEnumerable<GoogleMapPolylineOptions> polylines)
+		{
+			foreach (var item in polylines)
+			{
+				if (_polilynes.ContainsKey(item.Id))
+				{
+					_polilynes.Remove(item.Id);
+				}
+			}
+		}
+
+		//Map events
 		[JSInvokable("MapInitialized")]
 		public async Task MapInitialized(string mapContainerId)
 		{
@@ -409,6 +435,44 @@ namespace Majorsoft.Blazor.Components.Maps.Google
 			if (_markers.ContainsKey(id))
 			{
 				var callback = _markers[id].OnDragStartCallback;
+				await CustomEvent(callback, id, geolocation);
+			}
+		}
+
+		//Polylines events.
+		[JSInvokable("PolylinesClicked")]
+		public async Task PolylinesClicked(string id)
+		{
+			if (_polilynes.ContainsKey(id))
+			{
+				var callback = _polilynes[id].OnClickCallback;
+				await CustomEvent(callback, id);
+			}
+		}
+		[JSInvokable("PolylinesDrag")]
+		public async Task PolylinesDrag(string id, GeolocationCoordinate geolocation)
+		{
+			if (_polilynes.ContainsKey(id))
+			{
+				var callback = _polilynes[id].OnDragCallback;
+				await CustomEvent(callback, id, geolocation);
+			}
+		}
+		[JSInvokable("PolylinesDragEnd")]
+		public async Task PolylinesDragEnd(string id, GeolocationCoordinate geolocation)
+		{
+			if (_polilynes.ContainsKey(id))
+			{
+				var callback = _polilynes[id].OnDragEndCallback;
+				await CustomEvent(callback, id, geolocation);
+			}
+		}
+		[JSInvokable("PolylinesDragStart")]
+		public async Task PolylinesDragStart(string id, GeolocationCoordinate geolocation)
+		{
+			if (_polilynes.ContainsKey(id))
+			{
+				var callback = _polilynes[id].OnDragStartCallback;
 				await CustomEvent(callback, id, geolocation);
 			}
 		}

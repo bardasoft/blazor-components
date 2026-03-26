@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace Majorsoft.Blazor.Components.Maps.Google
 {
@@ -8,7 +9,7 @@ namespace Majorsoft.Blazor.Components.Maps.Google
     /// </summary>
     public class GoogleMapPolylineOptions
     {
-        public Guid Id { get; }
+        public string Id { get; }
 
         /// <summary>
         /// Indicates whether this Polyline handles mouse events. Defaults to true.
@@ -67,9 +68,30 @@ namespace Majorsoft.Blazor.Components.Maps.Google
         /// </summary>
         public int ZIndex { get; set; }
 
+        /// <summary>
+        /// Callback function called when Marker was clicked.
+        /// </summary>
+        public Func<string, Task>? OnClickCallback { get; set; }
+
+        /// <summary>
+        /// Callback function called when Marker dragging.
+        /// </summary>
+        public Func<string, GeolocationCoordinate, Task>? OnDragCallback { get; set; }
+
+        /// <summary>
+        /// Callback function called when Marker drag ended.
+        /// </summary>
+        public Func<string, GeolocationCoordinate, Task>? OnDragEndCallback { get; set; }
+
+        /// <summary>
+        /// Callback function called when Marker drag started.
+        /// </summary>
+        public Func<string, GeolocationCoordinate, Task>? OnDragStartCallback { get; set; }
+
+
         public GoogleMapPolylineOptions()
         {
-            Id = Guid.NewGuid();
+            Id = Guid.NewGuid().ToString();
         }
     }
 
