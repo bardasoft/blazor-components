@@ -57,10 +57,10 @@ jobs:
         Description: 'Blazor Components by Imre Toth'
         Copyright: '$(AssemblyCopyright)'
         RepositoryType: 'Git'
-        VersionNumber: '$(AssemblyVersion)'
-        FileVersionNumber: '$(AssemblyVersion)'
-        InformationalVersion: '$(AssemblyVersion)'
-        PackageVersion: '$(AssemblyVersion)'
+        VersionNumber: '$(AssemblyVersion)$(PreviewPackageVersion)'
+        FileVersionNumber: '$(AssemblyVersion)$(PreviewPackageVersion)'
+        InformationalVersion: '$(AssemblyVersion)$(PreviewPackageVersion)'
+        PackageVersion: '$(AssemblyVersion)$(PreviewPackageVersion)'
         GeneratePackageOnBuild: false
         LogLevel: 'verbose'
         FailOnWarning: false
