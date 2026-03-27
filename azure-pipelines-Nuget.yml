@@ -97,7 +97,7 @@ jobs:
         configuration: '$(buildConfiguration)'
         packDirectory: '$(Build.ArtifactStagingDirectory)/nupkgs'
         nobuild: true
-        includesymbols: true
+        #includesymbols: true
         versioningScheme: 'off'
 
     # - task: PowerShell@2

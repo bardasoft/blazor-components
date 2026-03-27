@@ -14,7 +14,7 @@ For code examples [see usage](https://github.com/majorimi/blazor-components/blob
 
 You can try it out by using the [demo app](https://blazorextensions.z6.web.core.windows.net/permalink#main).
 
-![Modal demo](https://github.com/majorimi/blazor-components-docs/raw/main/github/docs/gifs/permaLink.gif)
+![Modal demo](https://raw.githubusercontent.com/majorimi/blazor-components-docs/main/github/docs/gifs/permaLink.gif)
 
 # Components and Services
 
