@@ -47,7 +47,7 @@ jobs:
       displayName: 'Update Web Assembly Info'
       inputs:
         Path: '$(Build.SourcesDirectory)'
-        FileNames: 'src/**/*.csproj'
+        FileNames: 'src/**/*.csproj;!**/*.Test[s].csproj'
         InsertAttributes: true
         FileEncoding: 'auto'
         WriteBOM: false
