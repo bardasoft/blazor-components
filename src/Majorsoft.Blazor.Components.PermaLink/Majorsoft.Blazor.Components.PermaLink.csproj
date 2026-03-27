@@ -11,6 +11,7 @@
 		<Product>Blazor Components</Product>
 		<Copyright>©2021 Imre Toth</Copyright>
 		<PackageProjectUrl>https://github.com/majorimi/blazor-components/blob/master/.github/docs/PermaLink.md</PackageProjectUrl>
+    <PackageReadmeFile>PermaLink.md</PackageReadmeFile>
 		<PackageIcon>blazor.components.png</PackageIcon>
 		<RepositoryUrl>https://github.com/majorimi/blazor-components</RepositoryUrl>
 		<RepositoryType>Git</RepositoryType>
@@ -19,12 +20,9 @@
 		<Description>Blazor PermaLink component and extension that can be used to create navigation element inside Blazor pages (#permalink). Part of Majorsoft Blazor library.</Description>
 		<Title>Blazor Components PermaLink navigation</Title>
 		<PackageLicenseFile>License.txt</PackageLicenseFile>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-		<DocumentationFile>.\Majorsoft.Blazor.Components.PermaLink.xml</DocumentationFile>
-	</PropertyGroup>
-
+	
 	<ItemGroup>
 		<Content Remove="bundleconfig.json" />
 	</ItemGroup>
@@ -37,6 +35,10 @@
 		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.3" />
 	</ItemGroup>
 
+  <PropertyGroup>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+  </PropertyGroup>
+  
 	<ItemGroup>
 		<ProjectReference Include="..\Majorsoft.Blazor.Components.Common.JsInterop\Majorsoft.Blazor.Components.Common.JsInterop.csproj" />
 	</ItemGroup>
@@ -52,6 +54,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	<None Include="..\..\.github\docs\PermaLink.md" Link="PermaLink.md">
+    <Pack>True</Pack>
+    <PackagePath></PackagePath>
+  </None>
 	<None Include="..\..\.github\Images\blazor.components.png">
 		<Pack>True</Pack>
 		<PackagePath></PackagePath>

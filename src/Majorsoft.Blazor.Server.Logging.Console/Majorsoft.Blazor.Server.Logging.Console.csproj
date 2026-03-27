@@ -12,7 +12,8 @@
 		<Copyright>©2021 Imre Toth</Copyright>
 		<PackageLicenseExpression></PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/majorimi/blazor-components/blob/master/.github/docs/ServerHostedLogging.md</PackageProjectUrl>
-		<RepositoryUrl>https://github.com/majorimi/blazor-components</RepositoryUrl>
+    <PackageReadmeFile>ServerHostedLogging.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/majorimi/blazor-components</RepositoryUrl>
 		<PackageIcon>blazor.components.png</PackageIcon>
 		<RepositoryType>Git</RepositoryType>
 		<PackageTags>.Net5 Blazor Server ConsoleLog</PackageTags>
@@ -20,10 +21,7 @@
 		<Title>Blazor Server Logging Console</Title>
 		<PackageLicenseFile>License.txt</PackageLicenseFile>
 		<Company>Majorsoft</Company>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-		<DocumentationFile>.\Majorsoft.Blazor.Server.Logging.Console.xml</DocumentationFile>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -40,9 +38,15 @@
 		<PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="5.0.3" />
 		<PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
 	</ItemGroup>
-
+  <PropertyGroup>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+  </PropertyGroup>
 
 	<ItemGroup>
+	<None Include="..\..\.github\docs\ServerHostedLogging.md" Link="ServerHostedLogging.md">
+    <Pack>True</Pack>
+    <PackagePath></PackagePath>
+  </None>
 	<None Include="..\..\.github\Images\blazor.components.png">
 		<Pack>True</Pack>
 		<PackagePath></PackagePath>

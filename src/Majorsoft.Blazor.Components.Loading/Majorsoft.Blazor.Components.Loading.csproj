@@ -12,6 +12,7 @@
 		<Copyright>©2021 Imre Toth</Copyright>
 		<PackageLicenseExpression></PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/majorimi/blazor-components/blob/master/.github/docs/Loading.md</PackageProjectUrl>
+    <PackageReadmeFile>Loading.md</PackageReadmeFile>
 		<RepositoryUrl>https://github.com/majorimi/blazor-components</RepositoryUrl>
 		<PackageIcon>blazor.components.png</PackageIcon>
 		<RepositoryType>Git</RepositoryType>
@@ -22,10 +23,7 @@
 		<PackageTags>.Net5 Blazor Htlm.Button Overlay PageLoading Loading Progress</PackageTags>
 		<PackageLicenseFile>License.txt</PackageLicenseFile>
 		<Title>Blazor Components Loading</Title>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-		<DocumentationFile>.\Majorsoft.Blazor.Components.Loading.xml</DocumentationFile>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -36,8 +34,15 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.3" />
 	</ItemGroup>
-
+  <PropertyGroup>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+  </PropertyGroup>
+  
 	<ItemGroup>
+	<None Include="..\..\.github\docs\Loading.md" Link="Loading.md">
+    <Pack>True</Pack>
+    <PackagePath></PackagePath>
+  </None>
 	<None Include="..\..\.github\Images\blazor.components.png">
 		<Pack>True</Pack>
 		<PackagePath></PackagePath>

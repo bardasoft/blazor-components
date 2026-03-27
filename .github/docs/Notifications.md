@@ -25,7 +25,7 @@ Renders `Alert` component which is a banner to show important application messag
 Importance can be emphasized by `Type` and `NotificationStyle` styling with customizable content. 
 Alerts can close itself automatically or let user close them, etc.
 
-![Alert demo](https://github.com/majorimi/blazor-components-docs/raw/main/github/docs/gifs/Notification_Alert.gif)
+![Alert demo](https://raw.githubusercontent.com/majorimi/blazor-components-docs/main/github/docs/gifs/Notification_Alert.gif)
 
 ### Properties
 - **`IsVisible`: `bool { get; set; }` (default: false)** <br />
@@ -65,7 +65,7 @@ which can be placed to 6 different places of a page. With **injectable `IToastSe
 By using **Global settings or override all values per `Toast` notification**. Importance can be emphasized by `Type` and `NotificationStyle` styling with customizable content.
 <br />All Toast components will close itself automatically when given timeout elapsed.
 
-![Toast demo](https://github.com/majorimi/blazor-components-docs/raw/main/github/docs/gifs/Notification_Toast.gif)
+![Toast demo](https://raw.githubusercontent.com/majorimi/blazor-components-docs/main/github/docs/gifs/Notification_Toast.gif)
 
 ### ToastContainer
 As the name suggests it is a container element for individual `Toast` notifications. Only 1 container per application is allowed.**
@@ -186,7 +186,7 @@ Injectable `IHtmlNotificationService` service which is a **wrapper for Notificat
 
 **NOTE**: *in order to show system notifications user consent is required for the given website per browser. also operating system must allow notification to show e.g.: notification center turned on, focus assist allowing notifications to shown by the app in the given time, etc...*
 
-![HTML5 Notification demo](https://github.com/majorimi/blazor-components-docs/raw/main/github/docs/gifs/Notification_htmlnotification.gif)
+![HTML5 Notification demo](https://raw.githubusercontent.com/majorimi/blazor-components-docs/main/github/docs/gifs/Notification_htmlnotification.gif)
 
 ### Functions
 - **`RequestPermissionAsync()`: `ValueTask RequestPermissionAsync(Func<HtmlNotificationPermissionTypes, Task> callback)`** <br />

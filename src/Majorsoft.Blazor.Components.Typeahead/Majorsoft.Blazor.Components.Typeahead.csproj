@@ -6,7 +6,8 @@
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<Version>1.0.0.0</Version>
 		<PackageProjectUrl>https://github.com/majorimi/blazor-components/blob/master/.github/docs/Typeahead.md</PackageProjectUrl>
-		<Authors>Imre Toth</Authors>
+    <PackageReadmeFile>Typeahead.md</PackageReadmeFile>
+    <Authors>Imre Toth</Authors>
 		<Company>Majorsoft</Company>
 		<Product>Blazor Components</Product>
 		<RepositoryUrl>https://github.com/majorimi/blazor-components</RepositoryUrl>
@@ -20,10 +21,7 @@
 		<Description>Blazor component that renders an HTML Input or InputText with Typeahead panel. Part of Majorsoft Blazor library.</Description>
 		<Title>Blazor Components Typeahead Input</Title>
 		<PackageLicenseFile>License.txt</PackageLicenseFile>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-		<DocumentationFile>.\Majorsoft.Blazor.Components.Typeahead.xml</DocumentationFile>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -42,7 +40,10 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.3" />
 	</ItemGroup>
-
+  <PropertyGroup>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+  </PropertyGroup>
+  
 	<!--Include project DLL output to Nuget package-->
 	<ItemGroup>
 			<ProjectReference Include="..\Majorsoft.Blazor.Components.Common.JsInterop\Majorsoft.Blazor.Components.Common.JsInterop.csproj" />
@@ -57,6 +58,10 @@
 	</ItemGroup>
 	
 	<ItemGroup>
+	<None Include="..\..\.github\docs\Typeahead.md" Link="Typeahead.md">
+    <Pack>True</Pack>
+    <PackagePath></PackagePath>
+  </None>
 	<None Include="..\..\.github\Images\blazor.components.png">
 		<Pack>True</Pack>
 		<PackagePath></PackagePath>

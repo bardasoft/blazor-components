@@ -13,6 +13,7 @@
 		<Copyright>©2021 Imre Toth</Copyright>
 		<PackageLicenseExpression></PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/majorimi/blazor-components/blob/master/.github/docs/Collapse.md</PackageProjectUrl>
+    <PackageReadmeFile>Collapse.md</PackageReadmeFile>
 		<RepositoryUrl>https://github.com/majorimi/blazor-components</RepositoryUrl>
 		<RepositoryType>Git</RepositoryType>
 		<PackageTags>.Net5 Blazor Collapse Expand Accordion</PackageTags>
@@ -20,10 +21,7 @@
 		<Description>Blazor component that renders a customizable Expand/Collapse element also supports Collapse group (accordion). Part of Majorsoft Blazor library.</Description>
 		<Title>Blazor Components Expand/Collapse</Title>
 		<PackageLicenseFile>License.txt</PackageLicenseFile>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-		<DocumentationFile>.\Majorsoft.Blazor.Components.Collapse.xml</DocumentationFile>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -31,6 +29,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+    <None Include="..\..\.github\docs\Collapse.md" Link="Collapse.md" >
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
 		<None Include="..\..\.github\Images\blazor.components.png">
 			<Pack>True</Pack>
 			<PackagePath></PackagePath>
@@ -46,7 +48,9 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.3" />
 	</ItemGroup>
-
+  <PropertyGroup>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+  </PropertyGroup>
 
 	<!--Include project DLL output to Nuget package-->
 	<ItemGroup>

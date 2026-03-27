@@ -13,6 +13,7 @@
 		<PackageLicenseExpression></PackageLicenseExpression>
 		<Description>Blazor injectable Services and wrapper Components to notify on CSS Transition and Animation events. Part of Majorsoft Blazor library.</Description>
 		<PackageProjectUrl>https://github.com/majorimi/blazor-components/blob/master/.github/docs/CssEvents.md</PackageProjectUrl>
+    <PackageReadmeFile>CssEvents.md</PackageReadmeFile>
 		<RepositoryUrl>https://github.com/majorimi/blazor-components</RepositoryUrl>
 		<RepositoryType>Git</RepositoryType>
 		<PackageTags>.Net5 Blazor CSS Animation Transition Events</PackageTags>
@@ -20,10 +21,7 @@
 		<PackageReleaseNotes>See Releases here: https://github.com/majorimi/blazor-components/releases</PackageReleaseNotes>
 		<PackageLicenseFile>License.txt</PackageLicenseFile>
 		<Title>Blazor Components CSS events</Title>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-		<DocumentationFile>.\Majorsoft.Blazor.Components.CssEvents.xml</DocumentationFile>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -36,6 +34,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	<None Include="..\..\.github\docs\CssEvents.md" Link="CssEvents.md">
+    <Pack>True</Pack>
+    <PackagePath></PackagePath>
+  </None>
 	<None Include="..\..\.github\Images\blazor.components.png">
 		<Pack>True</Pack>
 		<PackagePath></PackagePath>
@@ -53,5 +55,8 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.3" />
 	</ItemGroup>
-
+  <PropertyGroup>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+  </PropertyGroup>
+  
 </Project>

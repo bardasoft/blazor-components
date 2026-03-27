@@ -19,15 +19,21 @@ It is available in the service provider (Google, Microsoft, etc.) developer site
 **NOTE: None of the Majorsoft Maps component tracking or exposing you _Token_ or _API Key_!
 Injecting and protecting this _Token_ or _API Key_ in your Blazor application is YOUR responsibility!**
 
-# Components
+# Components and Services
 
+
+#### Google:
 - **`GoogleStaticMap`**: component is wrapping **Google Static Maps services** into Blazor components.
 - **`GoogleMap`**: component is wrapping **Google JavaScript Maps services** into Blazor components.
-- **`BingMap`**: _Planned in release v1.4.0_
+- **`IGoogleMapService`**: Injectable service to handle Google JavaScript Maps functionalities. Available on the instance of `GoogleMap` object ref as well.
+
+#### Bing:
+- **`BindMap`**: _Planned in release v1.6.0_
 
 Maps using `IGeolocationService` (see "Dependences") to center current position.
 It can be omitted and injected separately to your components as well to get or track device location. 
 To see how it works please check **Geo JS** [documentation](https://github.com/majorimi/blazor-components/blob/master/.github/docs/JsInterop.md#geolocation-js-see-demo-app) and [demo](https://blazorextensions.z6.web.core.windows.net/jsinterop#geo-js).
+
 
 ## `GoogleStaticMap` component (See: [demo app](https://blazorextensions.z6.web.core.windows.net/maps#google-static-maps))
 
@@ -38,7 +44,7 @@ The Maps Static API returns an image (either GIF, PNG or JPEG) in response to an
 A Maps Static API image is embedded within an `<img>` tag's `src` attribute, or its equivalent in other programming languages.
 You can learn about Google Static Maps features and usage [here](https://developers.google.com/maps/documentation/maps-static/overview).
 
-![Google Static Map demo](https://github.com/majorimi/blazor-components-docs/raw/main/github/docs/gifs/maps_googleStatic.gif)
+![Google Static Map demo](https://raw.githubusercontent.com/majorimi/blazor-components-docs/main/github/docs/gifs/maps_googleStatic.gif)
 
 ### Properties
 - **`ZoomLevel`: `int { get; set; }` (default: 12)** <br />
@@ -93,7 +99,6 @@ Once operation has finished successfully `OnLocationDetected` event will be fire
 - **`DisposeAsync()`: `Task DisposeAsync()`** <br />
 Component implements `IAsyncDisposable` interface Blazor framework will call it when parent removed from render tree.
 
-
 ## `GoogleMap` component (See: [demo app](https://blazorextensions.z6.web.core.windows.net/maps#google-js-maps))
 
 :warning: **To use Google Maps Platform, you must have a billing account. The billing account is used to track costs associated with your projects.**
@@ -104,13 +109,15 @@ The Maps JavaScript API features four basic map types (roadmap, satellite, hybri
 A Maps JavaScript API renders a complex customizable map within `<div>` tag's also allowing to receive events.
 You can learn about Google JavaScript Maps features and usage [here](https://developers.google.com/maps/documentation/javascript/examples/map-simple)
 
-![Google JS Map demo](https://github.com/majorimi/blazor-components-docs/raw/main/github/docs/gifs/maps_googleJs.gif)
+![Google JS Map demo](https://raw.githubusercontent.com/majorimi/blazor-components-docs/main/github/docs/gifs/maps_googleJs.gif)
 
 ### Properties
 - **`InnerElementReference`: `ElementReference { get; }`** <br />
 Exposes a Blazor `ElementReference` of the wrapped around HTML element. It can be used e.g. for JS interop, etc.
 - **`MapId`: `string { get; }`** <br />
 Map HTML container Id. It can be used when multiple Maps added to one page.
+- **`GoogleMapService`: `string { get; }`** <br />
+Exposes `IGeolocationService` which is handling JsInterop. This instance can be used for access more GoogleMap features.
 - **`Width`: `int { get; set; }` (default: 400)** <br />
 Maps image Width in px.
 - **`Height`: `int { get; set; }` (default: 300)** <br />

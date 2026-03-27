@@ -12,18 +12,16 @@
 		<Copyright>©2021 Imre Toth</Copyright>
 		<PackageLicenseExpression></PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/majorimi/blazor-components/blob/master/.github/docs/JsInterop.md</PackageProjectUrl>
+    <PackageReadmeFile>JsInterop.md</PackageReadmeFile>
 		<RepositoryUrl>https://github.com/majorimi/blazor-components</RepositoryUrl>
 		<PackageIcon>blazor.components.png</PackageIcon>
 		<RepositoryType>Git</RepositoryType>
 		<Description>Blazor component that provides useful functionality and event notifications which can be achieved only with JS Interop e.g. scroll, clipboard, focus, resize, language detection, GEO location, etc. Part of Majorsoft Blazor library.</Description>
 		<PackageReleaseNotes>See Releases here: https://github.com/majorimi/blazor-components/releases</PackageReleaseNotes>
-		<PackageTags>.Net5 Blazor Js Interop Click Scroll Focus BoundRect</PackageTags>
+		<PackageTags>.Net5 Blazor Js Interop Click Scroll Resize Focus BoundRect Browser Geolocation Head History ColorTheme</PackageTags>
 		<PackageLicenseFile>License.txt</PackageLicenseFile>
 		<Title>Blazor Components JsInterop</Title>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-		<DocumentationFile>.\Majorsoft.Blazor.Components.Common.JsInterop.xml</DocumentationFile>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -33,8 +31,15 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.3" />
 	</ItemGroup>
-
+  <PropertyGroup>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+  </PropertyGroup>
+  
 	<ItemGroup>
+		<None Include="..\..\.github\docs\JsInterop.md" Link="JsInterop.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
 		<None Include="..\..\.github\Images\blazor.components.png">
 			<Pack>True</Pack>
 			<PackagePath></PackagePath>

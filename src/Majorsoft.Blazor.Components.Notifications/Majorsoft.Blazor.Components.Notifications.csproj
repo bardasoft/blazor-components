@@ -12,6 +12,7 @@
 	  <Copyright>©2021 Imre Toth</Copyright>
 	  <PackageLicenseExpression></PackageLicenseExpression>
 	  <PackageProjectUrl>https://github.com/majorimi/blazor-components/blob/master/.github/docs/Notifications.md</PackageProjectUrl>
+    <PackageReadmeFile>Notifications.md</PackageReadmeFile>
 	  <RepositoryUrl>https://github.com/majorimi/blazor-components</RepositoryUrl>
 	  <PackageIcon>blazor.components.png</PackageIcon>
 	  <RepositoryType>Git</RepositoryType>
@@ -21,11 +22,8 @@
 	  <PackageLicenseFile>License.txt</PackageLicenseFile>
 	  <Title>Blazor Components Notifications</Title>
 	  <PackageIconUrl />
+	  <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-		<DocumentationFile>.\Majorsoft.Blazor.Components.Notifications.xml</DocumentationFile>
-	</PropertyGroup>
 
 	<ItemGroup>
 	  <Content Remove="bundleconfig.json" />
@@ -43,13 +41,20 @@
   <ItemGroup>
 	<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.3" />
   </ItemGroup>
-
+  <PropertyGroup>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+  </PropertyGroup>
+  
   <ItemGroup>
 	<ProjectReference Include="..\Majorsoft.Blazor.Components.CssEvents\Majorsoft.Blazor.Components.CssEvents.csproj" />
 	<ProjectReference Include="..\Majorsoft.Blazor.Components.Timer\Majorsoft.Blazor.Components.Timer.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+	<None Include="..\..\.github\docs\Notifications.md" Link="Notifications.md">
+    <Pack>True</Pack>
+    <PackagePath></PackagePath>
+  </None>
 	<None Include="..\..\.github\Images\blazor.components.png">
 	  <Pack>True</Pack>
 	  <PackagePath></PackagePath>

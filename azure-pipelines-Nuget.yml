@@ -18,9 +18,10 @@ variables:
   AssemblyCompany: 'Majorsoft'
   AssemblyAuthor: 'Imre Toth'
   AssemblyProduct: 'Majorsoft Blazor Components'
-  AssemblyCopyright: 'Copyright © 2022 Majorsoft'
+  AssemblyCopyright: 'Copyright ©2026 Majorsoft'
   AssemblyVersion: '${{ parameters.AssemblyVersion }}'
   PreviewPackageVersion: '${{ parameters.PreviewPackageVersion }}'
+  empty: ""
 
 parameters:
 - name: AssemblyVersion
@@ -30,7 +31,7 @@ parameters:
 - name: PreviewPackageVersion
   displayName: 'Optional Preview version e.g. "-rc.2.20479.15"'
   type: string
-  default: ' '
+  default: $(empty)
 
 jobs:
   - job: BuildAndPublish
@@ -38,16 +39,16 @@ jobs:
     steps:
 
     - task: UseDotNet@2
-      displayName: Install .NET 5
+      displayName: Install .NET 8
       inputs:
        packageType: 'sdk'
-       version: '5.0.100' # replace this value with the version that you need for your project
+       version: '8.0.x' # replace this value with the version that you need for your project
 
     - task: Assembly-Info-NetCore@2
       displayName: 'Update Web Assembly Info'
       inputs:
         Path: '$(Build.SourcesDirectory)'
-        FileNames: '/src/**/*.csproj'
+        FileNames: 'src/**/*.csproj'
         InsertAttributes: true
         FileEncoding: 'auto'
         WriteBOM: false
@@ -57,10 +58,10 @@ jobs:
         Description: 'Blazor Components by Imre Toth'
         Copyright: '$(AssemblyCopyright)'
         RepositoryType: 'Git'
-        VersionNumber: '$(AssemblyVersion)'
-        FileVersionNumber: '$(AssemblyVersion)'
-        InformationalVersion: '$(AssemblyVersion)'
-        PackageVersion: '$(AssemblyVersion)'
+        VersionNumber: '$(AssemblyVersion)$(PreviewPackageVersion)'
+        FileVersionNumber: '$(AssemblyVersion)$(PreviewPackageVersion)'
+        InformationalVersion: '$(AssemblyVersion)$(PreviewPackageVersion)'
+        PackageVersion: '$(AssemblyVersion)$(PreviewPackageVersion)'
         GeneratePackageOnBuild: false
         LogLevel: 'verbose'
         FailOnWarning: false
@@ -82,44 +83,45 @@ jobs:
 
     - task: DotNetCoreCLI@2
       displayName: 'run tests'
+      continueOnError: true
       inputs:
        command: 'test'
        projects: '**/*.Tests.csproj'
        arguments: '--configuration $(buildConfiguration)'
 
-#    - task: DotNetCoreCLI@2
-#      displayName: 'dotnet pack'
-#      inputs:
-#        command: 'pack'
-#        packagesToPack: 'src/**/*.csproj'
-#        packDirectory: '$(Build.ArtifactStagingDirectory)/nupkgs'
-#        nobuild: true
-#        includesymbols: true
-#        versioningScheme: 'byEnvVar'
-#        versionEnvVar: '$(AssemblyVersion)$(PreviewPackageVersion)'
-
-    - task: PowerShell@2
-      displayName: Create Nuget packages
+    - task: DotNetCoreCLI@2
+      displayName: 'dotnet pack'
       inputs:
-        targetType: 'inline'
-        script: |
-          $version = '$(AssemblyVersion)' + '$(PreviewPackageVersion)'
-          $config = '$(buildConfiguration)'
-          $out = '$(Build.ArtifactStagingDirectory)/nupkgs'
-          Write-Host $version
-          #$newVersion = "<Version>" + $version + "<`/Version>"
-          #Write-Host $newVersion
-          $verRegex = '<Version>.*'
-          # $nugetRegex = '(<PackageReference\s+Include="Majorsoft\.Blazor\..* Version=")([rc0-9\.-]*)(".*)'
-          Get-ChildItem -Path src/**/*.csproj | % {
-            $file = $_.FullName
-            Write-Host $file
-            if((Get-Content -path $file -Raw) -match $verRegex) {
-                dotnet pack $file --configuration $config --output $out -p:PackageVersion=$version
-            }
-            #(Get-Content -path $file -Raw) -replace $verRegex, $newVersion | Set-Content -Path $file
-            #(Get-Content -path $file -Raw) -replace $nugetRegex, "`${1}$version`${3}" | Set-Content -Path $file
-          }
+        command: 'pack'
+        packagesToPack: 'src/**/*.csproj;!**/*.Test[s].csproj'
+        configuration: '$(buildConfiguration)'
+        packDirectory: '$(Build.ArtifactStagingDirectory)/nupkgs'
+        nobuild: true
+        #includesymbols: true
+        versioningScheme: 'off'
+
+    # - task: PowerShell@2
+    #   displayName: Create Nuget packages
+    #   inputs:
+    #     targetType: 'inline'
+    #     script: |
+    #       $version = '$(AssemblyVersion)' + '$(PreviewPackageVersion)'
+    #       $config = '$(buildConfiguration)'
+    #       $out = '$(Build.ArtifactStagingDirectory)/nupkgs'
+    #       Write-Host $version
+    #       #$newVersion = "<Version>" + $version + "<`/Version>"
+    #       #Write-Host $newVersion
+    #       $verRegex = '<Version>.*'
+    #       # $nugetRegex = '(<PackageReference\s+Include="Majorsoft\.Blazor\..* Version=")([rc0-9\.-]*)(".*)'
+    #       Get-ChildItem -Path src/**/*.csproj | % {
+    #         $file = $_.FullName
+    #         Write-Host $file
+    #         if((Get-Content -path $file -Raw) -match $verRegex) {
+    #             dotnet pack $file --configuration $config --output $out -p:PackageVersion=$version
+    #         }
+    #         #(Get-Content -path $file -Raw) -replace $verRegex, $newVersion | Set-Content -Path $file
+    #         #(Get-Content -path $file -Raw) -replace $nugetRegex, "`${1}$version`${3}" | Set-Content -Path $file
+    #       }
 
     - task: DotNetCoreCLI@2
       displayName: 'dotnet upload Nuget'

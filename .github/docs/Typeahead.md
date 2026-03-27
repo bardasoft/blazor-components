@@ -13,10 +13,10 @@ For code examples [see usage](https://github.com/majorimi/blazor-components/blob
 You can try it out by using the [demo app](https://blazorextensions.z6.web.core.windows.net/typeahead).
 
 ### Typeahead with pre-loaded string model
-![Typeahead demo](https://github.com/majorimi/blazor-components-docs/raw/main/github/docs/gifs/typeahead.gif)
+![Typeahead demo](https://raw.githubusercontent.com/majorimi/blazor-components-docs/main/github/docs/gifs/typeahead.gif)
 
 ### Typeahead with async custom model
-![Typeahead csutom demo](https://github.com/majorimi/blazor-components-docs/raw/main/github/docs/gifs/typeahead2.gif)
+![Typeahead csutom demo](https://raw.githubusercontent.com/majorimi/blazor-components-docs/main/github/docs/gifs/typeahead2.gif)
 
 # Components
 - **`TypeaheadInput`**: Wraps around HTML `<input>` control and adds Typeahead control with optional debounce (delay) and minimal required chars. 
@@ -104,6 +104,8 @@ Optional HTML content to show when **Search** is in progress.
   Callback function called when typeahead dropdown panel opened.
 - **`OnDropdownClose`: `EventCallback` delegate** <br />
   Callback function called when typeahead dropdown panel opened.
+- **`OnFocus`: `EventCallback<FocusEventArgs>` delegate** <br />
+  Callback function called when typeahead textbox got focus.
 
 ### Functions
 - **`DisposeAsync()`: `@implements IAsyncDisposable` interface** <br />
