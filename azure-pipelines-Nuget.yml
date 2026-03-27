@@ -21,6 +21,7 @@ variables:
   AssemblyCopyright: 'Copyright ©2026 Majorsoft'
   AssemblyVersion: '${{ parameters.AssemblyVersion }}'
   PreviewPackageVersion: '${{ parameters.PreviewPackageVersion }}'
+  empty: ""
 
 parameters:
 - name: AssemblyVersion
@@ -30,7 +31,7 @@ parameters:
 - name: PreviewPackageVersion
   displayName: 'Optional Preview version e.g. "-rc.2.20479.15"'
   type: string
-  default: ''
+  default: $(empty)
 
 jobs:
   - job: BuildAndPublish
